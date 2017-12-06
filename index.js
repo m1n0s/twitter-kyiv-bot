@@ -1,9 +1,7 @@
-import dotenv from 'dotenv';
-import Twit from 'twit';
-
+const Twit = require('twit');
 
 // Upload .env variables into process.env
-dotenv.config();
+require('dotenv').config();
 
 const {
     CONSUMER_KEY,
@@ -24,8 +22,7 @@ const likeTweet = (id) => {
     bot.post('favorites/create', { id }).then((res) => console.log(res.data.errors));
 };
 
-const kiev = 'Kiev';
-const stream = bot.stream('statuses/filter', { track: kiev });
+const stream = bot.stream('statuses/filter', { track: ['Kyiv', 'Kiev'].join() });
 
 stream.on('tweet', (tweet) => {
     const { text = '', extended_tweet } = tweet;
@@ -35,7 +32,7 @@ stream.on('tweet', (tweet) => {
         fullText = extended_tweet.full_text || '';
     }
 
-    const re = new RegExp(kiev, 'i');
+    const re = /(Kyiv|Kiev)/i;
 
     if (text.match(re) || fullText.match(re)) {
         likeTweet(tweet.id_str);
