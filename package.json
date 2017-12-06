@@ -4,6 +4,7 @@
   "description": "I like people who misspell Kyiv city name.",
   "main": "index.js",
   "author": "https://github.com/m1n0s",
+  "repository": "https://github.com/m1n0s/twitter-kyiv-bot.git",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
