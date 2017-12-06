@@ -32,7 +32,9 @@ stream.on('tweet', (tweet) => {
         fullText = extended_tweet.full_text || '';
     }
 
-    const re = /(Kyiv|Kiev)/i;
+    // We need to make sure that Kiev is really a separate word,
+    // but not some coincidence somwhere in "blablaKievblabla"
+    const re = /(\s+|^)(Kyiv|Kiev)(\s+|$)/im;
 
     if (text.match(re) || fullText.match(re)) {
         likeTweet(tweet.id_str);
