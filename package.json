@@ -1,8 +1,12 @@
 {
   "name": "twitter-kyiv-bot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "I like people who misspell Kyiv city name.",
   "main": "index.js",
-  "author": "@m1n0s",
-  "license": "MIT"
+  "author": "https://github.com/m1n0s",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "twit": "^2.2.9"
+  }
 }
