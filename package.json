@@ -1,0 +1,8 @@
+{
+  "name": "twitter-kyiv-bot",
+  "version": "0.0.1",
+  "description": "I like people who misspell Kyiv city name.",
+  "main": "index.js",
+  "author": "@m1n0s",
+  "license": "MIT"
+}
