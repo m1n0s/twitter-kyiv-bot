@@ -35,7 +35,7 @@ stream.on('tweet', (tweet) => {
         fullText = extended_tweet.full_text || '';
     }
 
-    const re = new RegExp(kiev);
+    const re = new RegExp(kiev, 'i');
 
     if (text.match(re) || fullText.match(re)) {
         likeTweet(tweet.id_str);
