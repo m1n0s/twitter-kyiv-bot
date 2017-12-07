@@ -23,6 +23,7 @@ const likeTweet = (id) => {
 };
 
 const stream = bot.stream('statuses/filter', { track: ['Kyiv', 'Kiev'].join() });
+const re = /\bKyiv|Kiev\b/i;
 
 stream.on('tweet', (tweet) => {
     const { text = '', extended_tweet } = tweet;
@@ -32,11 +33,7 @@ stream.on('tweet', (tweet) => {
         fullText = extended_tweet.full_text || '';
     }
 
-    // We need to make sure that Kiev is really a separate word,
-    // but not some coincidence somwhere in "blablaKievblabla"
-    const re = /(\s+|^)(Kyiv|Kiev)(\s+|$)/im;
-
-    if (text.match(re) || fullText.match(re)) {
+    if (re.test(text) || re.test(fullText)) {
         likeTweet(tweet.id_str);
     }
 });
