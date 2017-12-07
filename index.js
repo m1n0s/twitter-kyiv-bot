@@ -23,7 +23,7 @@ const likeTweet = (id) => {
 };
 
 const stream = bot.stream('statuses/filter', { track: ['Kyiv', 'Kiev'].join() });
-const re = /\bKyiv|Kiev\b/i;
+const re = /\b(Kyiv|Kiev)\b/i;
 
 stream.on('tweet', (tweet) => {
     const { text = '', extended_tweet } = tweet;
