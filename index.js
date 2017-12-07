@@ -27,7 +27,7 @@ const re = /\b(Kyiv|Kiev)\b/i;
 
 stream.on('tweet', (tweet) => {
     const { text = '', extended_tweet } = tweet;
-    let fullText = '';
+    let fullText;
 
     if (extended_tweet) {
         fullText = extended_tweet.full_text || '';
