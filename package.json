@@ -1,13 +1,20 @@
 {
   "name": "twitter-kyiv-bot",
   "version": "1.0.0",
-  "description": "I like people who misspell Kyiv city name.",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "description": "I like people who mention Kyiv in tweets. But if you use 'Kiev' you are wrong. If 'Kyiv' - you are such a great person 😇",
   "main": "index.js",
   "author": "https://github.com/m1n0s",
   "repository": "https://github.com/m1n0s/twitter-kyiv-bot.git",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "mongoose": "^4.13.7",
     "twit": "^2.2.9"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.3"
   }
 }
