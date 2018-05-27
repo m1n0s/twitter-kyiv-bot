@@ -1,5 +1,4 @@
 const Twit = require('twit');
-const mongoose = require('mongoose');
 
 // Upload .env variables into process.env
 require('dotenv').config();
@@ -9,16 +8,7 @@ const {
   CONSUMER_SECRET,
   ACCESS_TOKEN,
   ACCESS_TOKEN_SECRET,
-  MONGO_CONNECT,
 } = process.env;
-
-mongoose.connect(MONGO_CONNECT, { useMongoClient: true });
-mongoose.Promise = global.Promise;
-
-const db = mongoose.connection;
-const Tweet = mongoose.model('Tweet', { data: Object });
-
-db.once('open', () => console.log('connection to DB established'));
 
 const bot = new Twit({
   consumer_key: CONSUMER_KEY,
@@ -37,9 +27,7 @@ const likeTweet = (tweet) => {
     if (errors) {
       console.log(errors);
     } else {
-      const tweetRecord = new Tweet({ data: tweet });
-
-      tweetRecord.save().then(() => console.log('tweet saved'));
+      console.log(`Twit ${id} liked.`);
     }
   });
 };
